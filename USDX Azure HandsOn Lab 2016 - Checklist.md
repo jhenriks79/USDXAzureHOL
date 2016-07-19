@@ -11,6 +11,8 @@ Use this guide to verify that lab attendees have installed and configured the pr
 - [Visual Studio Windows 10 Developer Tools](https://go.microsoft.com/fwlink/p/?LinkId=619629)
 - [Azure SDK for .NET (Version 2.8.1)](http://go.microsoft.com/fwlink/?linkid=518003&amp;clcid=0x409)
 - [Azure Command Line Interface (CLI)](https://go.microsoft.com/?linkid=9828653&clcid=0x409)
+- [SQL Server Management Studio](http://go.microsoft.com/fwlink/?LinkID=822301)
+- [Power BI Desktop](https://go.microsoft.com/fwlink/?LinkId=521662&clcid=0x409)
 
 ## Requirements to Verify
 
