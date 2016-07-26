@@ -2,7 +2,7 @@
 
 The USDX hands-on labs (HOLs) have been prepared to give non-Technical Evangelists an overview of Azure as well as four common ISV scenarios. Use this document as a starting point and reference to the HOL material.
 
-Use the [checklist](./USDX%20HandsOn%20Lab%20-%20Checklist.md) to verify you have all the prereqs for the HOLs and then complete and of the five HOLs.
+Use the [checklist](./USDX%20HandsOn%20Lab%20-%20Checklist.md) to verify you have all the prereqs for the HOLs and then complete any of the five HOLs.
 
 ## Hands-on Labs
 
