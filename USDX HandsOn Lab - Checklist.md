@@ -13,7 +13,8 @@ Use this guide to verify that lab attendees have installed and configured the pr
 - [Azure Command Line Interface (CLI)](https://go.microsoft.com/?linkid=9828653&clcid=0x409)
 - [SQL Server Management Studio](http://go.microsoft.com/fwlink/?LinkID=822301)
 - [Power BI Desktop](https://go.microsoft.com/fwlink/?LinkId=521662&clcid=0x409)
-- [Azure Service Fabric SDK for Visual Studio 2015]( http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015)
+- [Azure Service Fabric SDK for Visual Studio 2015](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015)
+- [Azure Storage Explorer](http://storageexplorer.com/)
 
 ## Requirements to Verify
 
