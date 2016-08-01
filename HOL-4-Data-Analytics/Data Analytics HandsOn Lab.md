@@ -1,6 +1,7 @@
-***P20X Data + Analytics Session Hands-on Lab***
+# P20X Data + Analytics Session Hands-on Lab
 
-**Lab Objectives**
+<br>
+##Lab Objectives
 
 1.  Create SQL Data Warehouse using Azure Portal and connect with SQL Server Management Studio.
 
@@ -8,7 +9,7 @@
 
 3.  Load data from Azure SQL Data Warehouse into Power BI Desktop to create interactive charts and visualizations.
 
-**Software Prerequisites**
+##Software Prerequisites
 
 -   Windows 10 PC
 
@@ -18,63 +19,71 @@
 
 -   [Power BI Desktop](https://go.microsoft.com/fwlink/?LinkId=521662&clcid=0x409)
 
-**Create SQL Data Warehouse using Azure Portal**
+##Create SQL Data Warehouse using Azure Portal
 
 1.  Sign in to your Azure Subscription.
 
 2.  Click **+ New** &gt; **Data + Storage** &gt; **SQL Data Warehouse**.
 
-> <img src="./media/image1.png" width="624" height="400" />
+	 <img src="./media/image1.png" width="624" height="400" />
 
-1.  In the **SQL Data Warehouse** blade, fill in the following information:
+3.  In the **SQL Data Warehouse** blade, fill in the following information:
 
--   **Server**: It is recommended to select your SQL server first. You can select an existing server or [create a new one](https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-get-started-new-server/).
+	-   **Server**: It is recommended to select your SQL server first. You can select an existing server or [create a new one](https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-get-started-new-server/).
 
-> <img src="./media/image2.PNG" width="647" height="634" />
+	> <img src="./media/image2.PNG" width="647" height="634" />
 
--   **Database name**: The name that will be used to reference the SQL Data Warehouse. It must be unique to the server.
+	-   **Database name**: The name that will be used to reference the SQL Data Warehouse. It must be unique to the server.
 
--   **Performance**: It is recommended to start with 400 DWUs. You can move the slider to the left or right to adjust the performance of your data warehouse, or scale up or down after creation. To learn more about DWUs see the documentation on [scaling](https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-manage-compute-overview/) or our [pricing page](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+	-   **Performance**: It is recommended to start with 400 DWUs. You can move the slider to the left or right to adjust the performance of your data warehouse, or scale up or down after creation. To learn more about DWUs see the documentation on [scaling](https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-manage-compute-overview/) or our [pricing page](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 
--   **Subscription**: Select the subscription that this SQL Data Warehouse will bill to.
+	-   **Subscription**: Select the subscription that this SQL Data Warehouse will bill to.
 
--   **Resource group**: Resource groups are containers designed to help you manage a collection of Azure resources. The best practice is to place all the resources in a single resource group and since we are in Colorado, create all the resources in West US location
+	-   **Resource group**: Resource groups are containers designed to help you manage a collection of Azure resources. The best practice is to place all the resources in a single resource group and since we are in Colorado, create all the resources in West US location
 
--   **Select source**: Click **Select source** &gt; **Blank database**.
+	-   **Select source**: Click **Select source** &gt; **Blank database**.
 
-<img src="./media/image3.PNG" width="619" height="665" />
+	<img src="./media/image3.PNG" width="619" height="665" />
+<br>
 
-1.  Click **Create** to create your SQL Data Warehouse.
+4.  Click **Create** to create your SQL Data Warehouse.
 
-2.  Wait for a few minutes and your SQL Data Warehouse will be ready. When finished, you should be returned to the portal. You can find your SQL Data Warehouse on your dashboard, or listed under your SQL Databases, or in the resource group that you used to create it.
+5.  Wait for a few minutes and your SQL Data Warehouse will be ready. When finished, you should be returned to the portal. You can find your SQL Data Warehouse on your dashboard, or listed under your SQL Databases, or in the resource group that you used to create it.
 
-<img src="./media/image4.png" width="624" height="399" />
+	<img src="./media/image4.png" width="624" height="399" />
+<br>
 
-1.  Use the following steps in the Azure portal to create a server-level firewall rule that allows connections from an individual IP address (your client computer).
+6.  Use the following steps in the Azure portal to create a server-level firewall rule that allows connections from an individual IP address (your client computer).
 
     1.  Click the SQL server we just created to create a firewall rule.
 
     2.  Click **show firewall settings**
 
-<img src="./media/image5.png" width="624" height="426" />
+	<img src="./media/image5.png" width="624" height="426" />
+<br>
 
-1.  Click **Add Client IP** to have Azure create a rule for your client's IP address.
+7.  Click **Add Client IP** to have Azure create a rule for your client's IP address.
 
-<img src="./media/image6.png" width="624" height="393" />
+	<img src="./media/image6.png" width="624" height="393" />
+<br>
 
-1.  Click **Save** to create the server-level firewall rule.
+8.  Click **Save** to create the server-level firewall rule.
 
-<img src="./media/image7.PNG" width="590" height="375" />
+	<img src="./media/image7.PNG" width="590" height="375" />
 
 Now that you have created a SQL Data Warehouse, you are ready to connect and begin querying.
 
-**Setup the PolyBase connectivity to centralized Azure Blob Store**
+<br>
+
+##Setup the PolyBase connectivity to centralized Azure Blob Store
 
 PolyBase is a technology that accesses and combines both non-relational and relational data, all from within SQL Server. It allows you to run queries on external data in Hadoop or Azure blob storage. By simply using Transact-SQL (T-SQL) statements, you an import and export data back and forth between relational tables in SQL Server and non-relational data stored in Hadoop or Azure Blob Storage. You can also query the external data from within a T-SQL query and join it with relational data.
 
+<br>
 <img src="./media/image8.png" width="624" height="276" />
+<br>
 
-Accessing the centralized blob storage:
+###Accessing the centralized blob storage:
 ---------------------------------------
 
 The centralized data store for our workshop is blob storage. To access this store, open **Azure Storage Explorer** and add a storage account. Following are the **access details:**
@@ -83,6 +92,7 @@ The centralized data store for our workshop is blob storage. To access this stor
 
 **Storage account name:** 2NX7xVaHL2ZQTPc0tBdIOxpz18zyMudmAlLNxECjFSE01M5551XcWgRIPzpiTHhEvHeTUEj8Z72Oh4XpqAdoYA==
 
+<br>
 <img src="./media/image9.PNG" width="624" height="404" />
 
 Explore the 3 blob storage containers.
@@ -97,7 +107,7 @@ Explore the 3 blob storage containers.
 
 We will use PolyBase to load this data into SQL Data Warehouse database.
 
-Accessing Azure SQL DW from SQL Server Management Studio:
+###Accessing Azure SQL DW from SQL Server Management Studio:
 
 Your SQL Data Warehouse is associated with an Azure SQL server. To connect you need the fully qualified name of the server (**servername**.database.windows.net).
 
@@ -117,9 +127,11 @@ To start querying your data warehouse, **open SQL Server Management Studio** and
 
 To explore, expand your Azure SQL server. You can view the databases associated with the server.
 
+<br>
 <img src="./media/image13.PNG" width="399" height="386" />
+<br>
 
-Create an external table for the blob storage data:
+###Create an external table for the blob storage data:
 
 In this section we create external tables that defines our data.
 
@@ -547,7 +559,7 @@ from \[dbo\].\[EnrollmentMaster\]
 
 where type = 'StudentEnrollment' and Computed\_Final\_Score &lt; 0.7 and Computed\_Final\_Score is not null
 
-**Loading the data into Power BI Desktop for Visualization**
+##Loading the data into Power BI Desktop for Visualization
 
 Power BI integration allows you to directly connect to the data stored in your Azure SQL Data Warehouse offering data exploration, dynamic reporting and visualization.
 
@@ -557,51 +569,56 @@ Power BI integration allows you to directly connect to the data stored in your A
 
     select **'Azure SQL Data Warehouse'** and then click **'Connect'**.
 
-<img src="./media/image14.PNG" width="624" height="577" />
+	<img src="./media/image14.PNG" width="624" height="577" />
+	<br>
+3.  Enter the necessary connection information. Your server name and database name can be found in the Azure Portal.
 
-1.  Enter the necessary connection information. Your server name and database name can be found in the Azure Portal.
+	<img src="./media/image15.PNG" width="624" height="315" />
 
-<img src="./media/image15.PNG" width="624" height="315" />
-
-1.  When you select **OK**, the **Navigator** window returns the tables from your Azure SQL data warehouse. In this case, it returns and lists 5 tables. Select the internal tables – **Course Master** and **Enrollment Master**. The **Navigator** window displays a preview.
+4.  When you select **OK**, the **Navigator** window returns the tables from your Azure SQL data warehouse. In this case, it returns and lists 5 tables. Select the internal tables – **Course Master** and **Enrollment Master**. The **Navigator** window displays a preview.
 
     <img src="./media/image16.PNG" width="624" height="491" />
+	<br>
+5.  At this point we can edit the query before loading the table, by selecting **Edit** from the bottom of the window, or we can load the table. Click **‘Load’** to load the table.
 
-2.  At this point we can edit the query before loading the table, by selecting **Edit** from the bottom of the window, or we can load the table. Click **‘Load’** to load the table.
-
-3.  Now, we are on the **Report View** where you create reports and visualizations by dragging values into fields. You can also find **Data View** and **Relationship View** on the left pane. Explore them to get an initial idea of your data.
+6.  Now, we are on the **Report View** where you create reports and visualizations by dragging values into fields. You can also find **Data View** and **Relationship View** on the left pane. Explore them to get an initial idea of your data.
 
     <img src="./media/image17.PNG" width="49" height="141" />
 
-> **Data View** helps you inspect, explore, and understand data in your Power BI Desktop model. It's different from how you view tables, columns, and data in **Query Editor**. With Data View, you’re looking at your data *after* it has been loaded into the model. You can also make sequence of transformations to the data.
->
-> <img src="./media/image18.png" width="624" height="257" />
->
-> **Relationship View** shows all of the tables, columns, and relationships in your model. This can be especially helpful when your model has complex relationships between many tables.
->
-> <img src="./media/image19.PNG" width="624" height="477" />
+ 	**Data View** helps you inspect, explore, and understand data in your Power BI Desktop model. It's different from how you view tables, columns, and data in **Query Editor**. With Data View, you’re looking at your data *after* it has been loaded into the model. You can also make sequence of transformations to the data.
 
-1.  Now, on the Report view, let’s start off with creating simple charts. To find the count of the most important thing you want to track, **Card chart** and **Gauge chart** are useful.
+ 	<img src="./media/image18.png" width="624" height="257" />
+
+ 	**Relationship View** shows all of the tables, columns, and relationships in your model. This can be especially helpful when your model has complex relationships between many tables.
+
+ 	<img src="./media/image19.PNG" width="624" height="477" />
+
+	<br>
+
+7.  Now, on the Report view, let’s start off with creating some simple visualizations. To find the count of the most important thing you want to track, **Card chart** and **Gauge chart** are useful.
 
     **NOTE**: Sometimes a single number is the most important thing you want to track in your Power BI dashboard, such as total sales, market share year over year, or total opportunities. You can create a big number tile in Power BI using a **Card chart**. A **Gauge chart** has a circular arc and displays a single value that measures progress toward a goal/KPI. 
 
--   Create a Card chart from the **Visualizations** pane on the report and drag Course\_Id of the CourseMaster from the **Fields** pane.
+	-   Create a Card chart from the **Visualizations** pane on the report and drag Course\_Id of the CourseMaster from the **Fields** pane.
 
--   Similarly, create a Gauge chart from the **Visualizations** pane on the report and drag Enrollment\_Id of the EnrollmentMaster from the **Fields** pane.
+	-   Similarly, create a Gauge chart from the **Visualizations** pane on the report and drag Enrollment\_Id of the EnrollmentMaster from the **Fields** pane.
 
--   Here, we are tracking the count of Courses and the progress with Enrollments
+	-   Here, we are tracking the count of Courses and the progress with Enrollments
 
     <img src="./media/image20.PNG" width="624" height="565" />
+	<br>
 
-You can also format and customize your chart by selecting the **‘format’** brush icon the visualization pane. For Card and Gauge charts, you can add a title, change colors, increase font-size of the text and so on.
+8. You can also format and customize your chart by selecting the **‘format’** brush icon the visualization pane. For Card and Gauge charts, you can add a title, change colors, increase font-size of the text and so on.
+	
+	<br>
+	<img src="./media/image21.PNG" width="624" height="647" />
+	<br>
 
-<img src="./media/image21.PNG" width="624" height="647" />
+9. Now, let’s add a **Line chart** to **analyze the number of students enrolled over time**. Line charts are used to emphasize the overall shape of an entire series of values, usually over time.
 
-Now, let’s add a **Line chart** to **analyze the number of students enrolled over time**. Line charts are used to emphasize the overall shape of an entire series of values, usually over time.
+	-   Create a Line chart from the **Visualizations** pane on the report.
 
--   Create a Line chart from the **Visualizations** pane on the report.
-
--   From the EnrollmentMaster table, drag
+	-   From the EnrollmentMaster table, drag
 
     -   Created\_At column to Axis,
 
@@ -609,32 +626,35 @@ Now, let’s add a **Line chart** to **analyze the number of students enrolled o
 
     -   User\_Id column to Values
 
--   Since we are only interested in students’ enrollment, we can filter that by expanding Type column in the **‘Filters’** section and selecting only StudentEnrollment Value.
+	-   Since we are only interested in students’ enrollment, we can filter that by expanding Type column in the **‘Filters’** section and selecting only StudentEnrollment Value.
 
--   Now, repeat this process and add another Line chart to analyze the number of teachers enrolled over time.
+	-   Now, repeat this process and add another Line chart to analyze the number of teachers enrolled over time.
 
-<br>
-<img src="./media/image22.png" width="624" height="505" />
-<br>
+	<br>
+	<img src="./media/image22.png" width="624" height="505" />
+	<br>
 
-We can add a slicer to narrow the portion of the dataset shown in the other visualizations on the report page.  Slicers are an alternate way of filtering.
+10. We can add a slicer to narrow the portion of the dataset shown in the other visualizations on the report page.  Slicers are an alternate way of filtering.
 
--   From the Fields pane, select **CourseMaster &gt;** **Name.**
+	-   From the Fields pane, select **CourseMaster &gt;** **Name.**
 
--   Convert the visualization to a slicer. In the Visualizations pane, select the slicer icon.
+	-   Convert the visualization to a slicer. In the Visualizations pane, select the slicer icon.
 
-<br>
-<img src="./media/image23.png" width="624" height="289" />
-<br> 
+	<br>
+	<img src="./media/image23.png" width="624" height="289" />
+	<br> 
 
--   Now, slice the report page for **Business and Management** course. **Notice how other visualizations get updated to reflect these selections.** Also, select other courses to explore and analyze more course-specific information.
+	-   Now, slice the report page for **Business and Management** course. **Notice how other visualizations get updated to reflect these selections.** Also, select other courses to explore and analyze more course-specific information.
 
-<br><br><img src="./media/image24.png" width="624" height="303" /><br>
-<br>
+	<br>
+	<img src="./media/image24.png" width="624" height="303" />
+	<br>
 
-Finally, we have a report. You can **rename** your report at the bottom left corner of the page. Also, you can **publish** your reports to **Power BI Service** by clicking ‘**Publish’** under Home menu. You can always edit and republish your reports to update the changes.
+11. Finally, we have a report. You can **rename** your report at the bottom left corner of the page. Also, you can **publish** your reports to **Power BI Service** by clicking ‘**Publish’** under Home menu. You can always edit and republish your reports to update the changes.
 
-<br>
-<br><img src="./media/image25.png" width="624" height="516" /><br>
+
+	<br>
+	<img src="./media/image25.png" width="624" height="516" />
+
 
 
