@@ -10,4 +10,4 @@ Use the [checklist](./USDX%20HandsOn%20Lab%20-%20Checklist.md) to verify you hav
 - HOL-1: AWS Switchers
 - HOL-2: Data Center Migration
 - HOL-3: Service Fabric
-- HOL-4: Data Analytics
+- [HOL-4: Data Analytics](./HOL-4-Data-Analytics/Data%20Analytics%20HandsOn%20Lab.md)
