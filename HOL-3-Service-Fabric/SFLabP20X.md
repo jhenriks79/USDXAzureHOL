@@ -24,6 +24,8 @@ For more details on how to setup your development environment, follow the instru
 
 <https://azure.microsoft.com/en-us/documentation/articles/service-fabric-get-started/>
 
+**Note: Since the creation of service fabric cluster in Azure takes few minutes, you should start with the “Task 4: Create the Service Fabric environment in Azure” before starting with the lab. **
+
 Application Scenario
 --------------------
 
@@ -539,8 +541,8 @@ return response;
 
 2.  When done using the application, exit the debugging session by selecting **Debug** then **Stop Debugging** (Shift+F5). This will uninstall the application from Service Fabric and if viewing in Service Fabric Explorer (SFX) you will see that it is no longer deployed.
 
-Configuration and Upgrade
--------------------------
+Task 3: Configuration and Upgrade
+---------------------------------
 
 This section will demonstrate how to use Service Fabric configuration and perform a no downtime upgrade of the application.
 
@@ -548,7 +550,9 @@ This section will demonstrate how to use Service Fabric configuration and perfor
 
 > <img src="./media/image11.png" width="624" height="423" />
 
-1.  In the VotingController.cs, GetFile Method change the folder name to read the new version number that we will be using in the publish option below.
+1.  Right click on the Voting project and select **Publish…**, the Publish Service Fabric Application dialog will appear. Select **PublishProfiles\\Local.xml** for the Target profile, which will select the Local Cluster for the Connection Endpoint and Local.xml for Application Parameters File. Unselect the” upgrade the application” checkbox if it is selected. (This step will ensure that we will have a running service fabric application during the upgrade step)
+
+2.  In the VotesController.cs, “GetFile” Method change the folder name to read the new version number that we will be using in the publish option below.
 
     Change
 
@@ -558,13 +562,13 @@ This section will demonstrate how to use Service Fabric configuration and perfor
 
     string path = string.Format(@"..\\VotingServicePkg.Code.1.0.1\\{0}", file);
 
-    Go to the Build Menu and Click Rebuild Solution.
+3.  Go to the Build Menu and Click Rebuild Solution.
 
-2.  Right click on the Voting project and select **Publish…**, the Publish Service Fabric Application dialog will appear. Select **PublishProfiles\\Local.xml** for the Target profile, which will select the Local Cluster for the Connection Endpoint and Local.xml for Application Parameters File. Ensure the **Upgrade the Application** is selected.
+4.  Right click on the Voting project and select **Publish…**, the Publish Service Fabric Application dialog will appear. Select **PublishProfiles\\Local.xml** for the Target profile, which will select the Local Cluster for the Connection Endpoint and Local.xml for Application Parameters File. Ensure the **Upgrade the Application** is selected this time.
 
 > <img src="./media/image12.png" width="408" height="291" />
 
-1.  Click the **Manifest Versions…** button, the Edit Versions dialog will be displayed. Expand VotingServicePkg. Then change the New Version column value to 1.0.1 for **VotingType**, **VotingServicePkg** and **Code**. Click **Save** to close the dialog. This updates the version numbers for the code package, service an application in *ApplicationManifest.xml* and *ServiceManifest.xml*.
+1.  Click the **Manifest Versions…** button, the Edit Versions dialog will be displayed. Expand VotingServicePkg. Then change the New Version column value to 1.0.1 for **VotingType**, **VotingServicePkg** and **Code (Changing code should automatically update the other two)**. Click **Save** to close the dialog. This updates the version numbers for the code package, service an application in *ApplicationManifest.xml* and *ServiceManifest.xml*.
 
 > <img src="./media/image13.png" width="352" height="239" />
 
@@ -590,8 +594,8 @@ Update-ServiceFabricService -ServiceName fabric:/Voting/VotingService -Stateless
 >
 > <img src="./media/image15.png" width="624" height="355" />
 
-Deploy the service fabric application to Azure
-----------------------------------------------
+Task 4: Create the Service Fabric environment in Azure
+------------------------------------------------------
 
 Login
 -----
@@ -657,10 +661,10 @@ Create a new Service Fabric Cluster
 
     <img src="./media/image21.png" width="201" height="240" />
 
-6.  After few minutes, you will see a service fabric cluster provisioned under your resource group
+6.  After few minutes, you will see a service fabric cluster provisioned under your resource group s
 
-Deploy the application to Azure
--------------------------------
+Task 5: Deploy the application to Azure
+---------------------------------------
 
 1.  In Visual studio, right click on the “Voting” project and click on “Publish”. In the Target profile dropdown, select Cloud.xml. Select the appropriate Subscription account. Connection endpoint dropdown should be populated with the cluster we created in the previous step. Select the endpoint of the cluster in Azure. In the application parameter file dropdown, select Cloud.xml. Uncheck the “Upgrade the Application” check box if checked and if it is the first time you are deploying this application to the Azure cluster. During an upgrade, you will select this option to upgrade to a new version. Click on “Publish”. This will publish the “Voting” Application to the Service Fabric Cluster in Azure.
 
