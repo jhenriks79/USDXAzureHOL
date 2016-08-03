@@ -1,4 +1,4 @@
-# USDX Azure Starter Hands-On Lab 2016 Checklist
+# USDX Hands-On Lab Checklist
 
 Use this guide to verify that lab attendees have installed and configured the prerequisites.
 
@@ -13,7 +13,9 @@ Use this guide to verify that lab attendees have installed and configured the pr
 - [Azure Command Line Interface (CLI)](https://go.microsoft.com/?linkid=9828653&clcid=0x409)
 - [SQL Server Management Studio](http://go.microsoft.com/fwlink/?LinkID=822301)
 - [Power BI Desktop](https://go.microsoft.com/fwlink/?LinkId=521662&clcid=0x409)
-- [Azure Service Fabric SDK for Visual Studio 2015]( http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015)
+- [Azure Service Fabric SDK for Visual Studio 2015](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015)
+- [Azure Storage Explorer](http://storageexplorer.com/)
+- [Putty](http://www.putty.org)
 
 ## Requirements to Verify
 
@@ -31,20 +33,20 @@ Welcome to the World of Azure!
 - Once signed in, you&#39;ll hit the landing page for the new portal which contains a customizable starting hub to help manage your services.
 
 <br/>
-<img src="./media/image1.png" /> 
+<img src="./HOL-0-Azure-101/media/image1.png" /> 
 <br/>
 
 - On the left-hand menu, select **Subscriptions**
 
 <br/>
-<img src="./media/image2.png" /> 
+<img src="./HOL-0-Azure-101/media/image2.png" /> 
 <br/>
 
 - In the **Subscriptions** blade, select one of the subscriptions
 - Note: You may have multiple subscriptions and the names of those subscriptions may be different than shown below. Verify you have at least one subscription and close the Azure Portal.
 
 <br/>
-<img src="./media/image3.png" />  
+<img src="./HOL-0-Azure-101/media/image3.png" />  
 
 <br/>
 
@@ -59,4 +61,4 @@ Welcome to the World of Azure!
 
 <br/>
 
-<img src="./media/image4.png" /><span id="roll-back-a-deployment" class="anchor"></span> 
+<img src="./HOL-0-Azure-101/media/image4.png" /><span id="roll-back-a-deployment" class="anchor"></span> 
