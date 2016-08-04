@@ -127,7 +127,7 @@ PolyBase is a technology that accesses and combines both non-relational and rela
 The centralized data store for our workshop has been prepared for you in blob storage. To access this store, open **Microsoft Azure Storage Explorer application in Windows 10**. Under **(Local and Attached)**, **right click on Storage Accounts** and **Connect to Storage Account**.
 
 <br>
-<img src="./media/image12.png" width="624" height="480" />
+<img src="./media/image12.PNG" width="624" height="480" />
 <br>
 
 The following are the **access details** you will need to access the centralized blob storage.
@@ -612,7 +612,7 @@ Power BI integration allows you to directly connect to the data stored in your A
 
 3.  Enter the necessary connection information. You can find your server name and database name on the Azure Portal in your SQL Data Warehouse resource.
 
-	 <img src="./media/image18.PNG" width="624" height="315" />
+	 <img src="./media/image18.png" width="624" height="315" />
 	<br>
 
 4.  When you select **OK**, the **Navigator** window returns the tables from your Azure SQL data warehouse. In this case, it returns 5 tables. Select the internal tables – **Course Master** and **Enrollment Master**. The **Navigator** window displays a preview.
@@ -632,13 +632,13 @@ Power BI integration allows you to directly connect to the data stored in your A
 	 **Data View** helps you inspect, explore, and understand data in your Power BI Desktop model. It's different from how you view tables, columns, and data in **Query Editor**. With Data View, you’re looking at your data *after* it has been loaded into the model. You can also make sequence of transformations to the data.
 	
 	<br>
-	 <img src="./media/image21.png" width="624" height="257" />
+	 <img src="./media/image21.PNG" width="624" height="257" />
 	<br>
 
 	 **Relationship View** shows all of the tables, columns, and relationships in your model. This can be especially helpful when your model has complex relationships between many tables.
 	
 	<br>
-	 <img src="./media/image22.PNG" width="624" height="477" />
+	 <img src="./media/image22.png" width="624" height="477" />
 	<br>
 
 7.  Now, on the Report view, let’s start off with creating simple charts. To find the count of the most important thing you want to track, **Card chart** and **Gauge chart** are useful.
@@ -649,15 +649,15 @@ Power BI integration allows you to directly connect to the data stored in your A
 	
 	-   Here, you are tracking the count of Courses.
 	
-	 <img src="./media/image23.PNG" width="624" height="526" />
+	 <img src="./media/image23.png" width="624" height="526" />
 	
-	 <img src="./media/image24.PNG" width="624" height="507" />
+	 <img src="./media/image24.png" width="624" height="507" />
 	
 	-   Similarly, create a Gauge chart from the **Visualizations** pane on the report and drag Enrollment\_Id of the EnrollmentMaster from the **Fields** pane.
 	
 	-   Here, you are tracking the progress of Enrollments.
 	
-	 <img src="./media/image25.PNG" width="624" height="558" />
+	 <img src="./media/image25.png" width="624" height="558" />
 	<img src="./media/image26.PNG" width="624" height="565" />
 	<br>
 
