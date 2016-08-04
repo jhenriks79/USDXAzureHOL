@@ -12,7 +12,7 @@
 ## Software Prerequisites
 
 - Windows 10 PC
-- [Free MS FTE MSDN Subscription](http://subscriptions/)
+- [Free MS FTE MSDN Subscription](http://b6dmsdndevvm01.redmond.corp.microsoft.com/IO/)
 - [Visual Studio 2015 Professional](https://go.microsoft.com/fwlink/?LinkId=691980&clcid=0x409)
 - [Visual Studio Windows 10 Developer Tools](https://go.microsoft.com/fwlink/p/?LinkId=619629)
 - [Azure SDK for .NET (Version 2.8.1)](http://go.microsoft.com/fwlink/?linkid=518003&amp;clcid=0x409)

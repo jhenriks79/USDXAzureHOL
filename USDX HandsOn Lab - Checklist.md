@@ -5,7 +5,7 @@ Use this guide to verify that lab attendees have installed and configured the pr
 ## Software Prerequisites
 
 - Windows 10 PC
-- [Free MS FTE MSDN Subscription](http://subscriptions/)
+- [Free MS FTE MSDN Subscription](http://b6dmsdndevvm01.redmond.corp.microsoft.com/IO/)
 - [Visual Studio 2015 Professional](https://go.microsoft.com/fwlink/?LinkId=691980&clcid=0x409)
 - [Visual Studio Code](https://go.microsoft.com/fwlink/?LinkID=534107)
 - [Visual Studio Windows 10 Developer Tools](https://go.microsoft.com/fwlink/p/?LinkId=619629)
@@ -13,7 +13,9 @@ Use this guide to verify that lab attendees have installed and configured the pr
 - [Azure Command Line Interface (CLI)](https://go.microsoft.com/?linkid=9828653&clcid=0x409)
 - [SQL Server Management Studio](http://go.microsoft.com/fwlink/?LinkID=822301)
 - [Power BI Desktop](https://go.microsoft.com/fwlink/?LinkId=521662&clcid=0x409)
-- [Azure Service Fabric SDK for Visual Studio 2015]( http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015)
+- [Azure Service Fabric SDK for Visual Studio 2015](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015)
+- [Azure Storage Explorer](http://storageexplorer.com/)
+- [Putty](http://www.putty.org)
 
 ## Requirements to Verify
 
