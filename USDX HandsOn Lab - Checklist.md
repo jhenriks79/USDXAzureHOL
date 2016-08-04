@@ -5,7 +5,7 @@ Use this guide to verify that lab attendees have installed and configured the pr
 ## Software Prerequisites
 
 - Windows 10 PC
-- [Free MS FTE MSDN Subscription](http://subscriptions/)
+- [Free MS FTE MSDN Subscription](http://b6dmsdndevvm01.redmond.corp.microsoft.com/IO/)
 - [Visual Studio 2015 Professional](https://go.microsoft.com/fwlink/?LinkId=691980&clcid=0x409)
 - [Visual Studio Code](https://go.microsoft.com/fwlink/?LinkID=534107)
 - [Visual Studio Windows 10 Developer Tools](https://go.microsoft.com/fwlink/p/?LinkId=619629)
