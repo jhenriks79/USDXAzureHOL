@@ -674,8 +674,12 @@ Task 5: Deploy the application to Azure
 
 2.  Open the remote cluster in the service fabric explorer. For this, navigate to following explorer URL (Alternatively you can click on the explorer link in the service fabric cluster in Azure portal. To get to the cluster, select the resource group, select the service fabric cluster from the list of resources)
 
+    http://&lt;your-cluster-endpoint&gt;:19080/Explorer/index.html
+
     <img src="./media/image23.png" width="535" height="81" />
 
 3.  Verify your application is running in Azure. Access the voting service application by navigating to the following URL
+
+    http://&lt;your-cluster-endpoint&gt;:8338/api/index.html
 
 In this lab, you learned to create a simple service fabric application, used visual studio and service fabric explorer to develop and manage the application and deploy to local cluster and also in Azure.
