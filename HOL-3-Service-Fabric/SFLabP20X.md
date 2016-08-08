@@ -647,9 +647,11 @@ Create a new Service Fabric Cluster
 
         2.  Select the Virtual machine size Standard\_D1\_V2 from the list and click Select
 
-        3.  Leave every other settings as is and click OK
+        3.  In the Custom endpoints section, enable few http endpoints including the endpoint we are using for our application. (80,8080,8338) so that we can verify the application in Azure after deployment
 
-            <img src="./media/image19.png" width="293" height="736" />
+        4.  Leave every other settings as is and click OK
+
+            <img src="./media/image19.png" width="311" height="739" />
 
 3.  In the “Cluster Configuration tab”, leave other settings as is as shown below and click OK
 
@@ -672,6 +674,12 @@ Task 5: Deploy the application to Azure
 
 2.  Open the remote cluster in the service fabric explorer. For this, navigate to following explorer URL (Alternatively you can click on the explorer link in the service fabric cluster in Azure portal. To get to the cluster, select the resource group, select the service fabric cluster from the list of resources)
 
+    http://&lt;your-cluster-endpoint&gt;:19080/Explorer/index.html
+
     <img src="./media/image23.png" width="535" height="81" />
+
+3.  Verify your application is running in Azure. Access the voting service application by navigating to the following URL
+
+    http://&lt;your-cluster-endpoint&gt;:8338/api/index.html
 
 In this lab, you learned to create a simple service fabric application, used visual studio and service fabric explorer to develop and manage the application and deploy to local cluster and also in Azure.
