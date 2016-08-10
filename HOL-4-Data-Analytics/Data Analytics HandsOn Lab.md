@@ -206,7 +206,7 @@ Select **New Query** in SQL Server Management Studio. **Change the database nam
 		
 		GO
 		
-		SELECT \* FROM SYS.DATABASE\_CREDENTIALS;
+		SELECT * FROM SYS.DATABASE_CREDENTIALS;
 		
 		GO
 
@@ -230,27 +230,27 @@ Select **New Query** in SQL Server Management Studio. **Change the database nam
 		
 		GO
 		
-		SELECT \*FROM SYS.EXTERNAL\_DATA\_SOURCES;
+		SELECT *FROM SYS.EXTERNAL_DATA_SOURCES;
 		
 		GO
 		
 		-- 4) Create a comma delimted file format
 		
-		-- FORMAT\_OPTIONS: comma delimated with string delimiters
+		-- FORMAT_OPTIONS: comma delimated with string delimiters
 		
 		CREATE EXTERNAL FILE FORMAT TextFileTab
 		
 		WITH (
 		
-		FORMAT\_TYPE = DelimitedText,
+		FORMAT_TYPE = DelimitedText,
 		
-		FORMAT\_OPTIONS (FIELD\_TERMINATOR = '\\t')
+		FORMAT_OPTIONS (FIELD_TERMINATOR = '\t')
 		
 		);
 		
 		GO
 		
-		SELECT \* FROM SYS.EXTERNAL\_FILE\_FORMATS;
+		SELECT * FROM SYS.EXTERNAL_FILE_FORMATS;
 		
 		GO
 
@@ -264,7 +264,7 @@ characteristics.
 
 		-- 5) Create external tables for courses and enrollments
 		
-		if (object\_id('dbo.CourseDimExternal') is NOT NULL)
+		if (object_id('dbo.CourseDimExternal') is NOT NULL)
 		
 		begin
 		
@@ -288,7 +288,7 @@ characteristics.
 		
 		ConcludeAt varchar(100) NULL,
 		
-		Wiki\_Id varchar(100) NULL
+		Wiki_Id varchar(100) NULL
 		
 		)
 		
@@ -296,23 +296,23 @@ characteristics.
 		
 		LOCATION='coursedim/',
 		
-		DATA\_SOURCE=AzureStorageInstructurePoc,
+		DATA_SOURCE=AzureStorageInstructurePoc,
 		
-		FILE\_FORMAT=TextFileTab,
+		FILE_FORMAT=TextFileTab,
 		
-		REJECT\_TYPE = Value,
+		REJECT_TYPE = Value,
 		
-		REJECT\_VALUE = 100000
+		REJECT_VALUE = 100000
 		
 		);
 		
 		Go
 		
-		SELECT \* FROM dbo.CourseDimExternal;
+		SELECT * FROM dbo.CourseDimExternal;
 		
 		Go
 		
-		if (object\_id('dbo.EnrollmentDimExternal') is NOT NULL)
+		if (object_id('dbo.EnrollmentDimExternal') is NOT NULL)
 		
 		begin
 		
@@ -328,7 +328,7 @@ characteristics.
 		
 		Type varchar(100) NULL,
 		
-		Workflow\_State varchar(100) NULL,
+		Workflow_State varchar(100) NULL,
 		
 		CreatedAt varchar(100) NULL,
 		
@@ -340,9 +340,9 @@ characteristics.
 		
 		ConcludeAt varchar(100) NULL,
 		
-		Course\_Id varchar(100) NULL,
+		Course_Id varchar(100) NULL,
 		
-		User\_Id varchar(100) NULL
+		User_Id varchar(100) NULL
 		
 		)
 		
@@ -350,19 +350,19 @@ characteristics.
 		
 		LOCATION='enrollmentdim/',
 		
-		DATA\_SOURCE=AzureStorageInstructurePoc,
+		DATA_SOURCE=AzureStorageInstructurePoc,
 		
-		FILE\_FORMAT=TextFileTab
+		FILE_FORMAT=TextFileTab
 		
 		);
 		
 		go
 		
-		SELECT \* FROM dbo.EnrollmentDimExternal;
+		SELECT * FROM dbo.EnrollmentDimExternal;
 		
 		go
 		
-		if (object\_id('dbo.EnrollmentFactExternal') is NOT NULL)
+		if (object_id('dbo.EnrollmentFactExternal') is NOT NULL)
 		
 		begin
 		
@@ -374,13 +374,13 @@ characteristics.
 		
 		CREATE EXTERNAL TABLE dbo.EnrollmentFactExternal (
 		
-		Enrollment\_Id varchar(100) NOT NULL,
+		Enrollment_Id varchar(100) NOT NULL,
 		
-		User\_Id varchar(100) NULL,
+		User_Id varchar(100) NULL,
 		
-		Course\_Id varchar(100) NULL,
+		Course_Id varchar(100) NULL,
 		
-		Computed\_Final\_Score varchar(100) NULL
+		Computed_Final_Score varchar(100) NULL
 		
 		)
 		
@@ -388,15 +388,15 @@ characteristics.
 		
 		LOCATION='enrollmentfact/',
 		
-		DATA\_SOURCE=AzureStorageInstructurePoc,
+		DATA_SOURCE=AzureStorageInstructurePoc,
 		
-		FILE\_FORMAT=TextFileTab
+		FILE_FORMAT=TextFileTab
 		
 		);
 		
 		Go
 		
-		SELECT count(\*) FROM dbo.EnrollmentFactExternal;
+		SELECT count(*) FROM dbo.EnrollmentFactExternal;
 		
 		go
 
@@ -412,7 +412,7 @@ Once the external table is created, you can either load the data into a new tabl
 		
 		-- Note the hash distribution
 		
-		if (object\_id('dbo.CourseMaster') is NOT NULL)
+		if (object_id('dbo.CourseMaster') is NOT NULL)
 		
 		begin
 		
@@ -426,19 +426,19 @@ Once the external table is created, you can either load the data into a new tabl
 		
 		(
 		
-		Course\_Id varchar(100) NOT NULL,
+		Course_Id varchar(100) NOT NULL,
 		
 		Name varchar(100) NULL,
 		
 		Type varchar(100) NULL,
 		
-		Created\_At datetime NOT NULL,
+		Created_At datetime NOT NULL,
 		
 		StartAt varchar(100) NULL,
 		
 		ConcludeAt varchar(100) NULL,
 		
-		Wiki\_Id varchar(100) NULL
+		Wiki_Id varchar(100) NULL
 		
 		)
 		
@@ -446,7 +446,7 @@ Once the external table is created, you can either load the data into a new tabl
 		
 		(
 		
-		DISTRIBUTION = HASH (Course\_Id),
+		DISTRIBUTION = HASH (Course_Id),
 		
 		CLUSTERED COLUMNSTORE INDEX
 		
@@ -474,7 +474,7 @@ Once the external table is created, you can either load the data into a new tabl
 		
 		substring(CreatedAt, 1, 4) + '-' + substring(CreatedAt, 6, 2) + '-' + substring(CreatedAt, 9, 2)
 		
-		) as Created\_At, StartAt, ConcludeAt, Wiki\_Id
+		) as Created_At, StartAt, ConcludeAt, Wiki_Id
 		
 		FROM
 		
@@ -484,11 +484,11 @@ Once the external table is created, you can either load the data into a new tabl
 		
 		AND isDate(substring(CreatedAt, 1, 4) + '-' + substring(CreatedAt, 6, 2) + '-' + substring(CreatedAt, 9, 2)) = 1
 		
-		SELECT \* FROM dbo.CourseMaster
+		SELECT * FROM dbo.CourseMaster
 		
 		---- Follow the same procedure for Enrollments too
 		
-		if (object\_id('dbo.EnrollmentMaster') is NOT NULL)
+		if (object_id('dbo.EnrollmentMaster') is NOT NULL)
 		
 		begin
 		
@@ -502,17 +502,17 @@ Once the external table is created, you can either load the data into a new tabl
 		
 		(
 		
-		Enrollment\_Id varchar(100) NOT NULL,
+		Enrollment_Id varchar(100) NOT NULL,
 		
 		Type varchar(50) NULL,
 		
-		User\_Id varchar(50) NULL,
+		User_Id varchar(50) NULL,
 		
-		Course\_Id varchar(50) NULL,
+		Course_Id varchar(50) NULL,
 		
-		Created\_At datetime NULL,
+		Created_At datetime NULL,
 		
-		Computed\_Final\_Score decimal(12,4) NULL
+		Computed_Final_Score decimal(12,4) NULL
 		
 		)
 		
@@ -520,7 +520,7 @@ Once the external table is created, you can either load the data into a new tabl
 		
 		(
 		
-		DISTRIBUTION = HASH (Enrollment\_Id),
+		DISTRIBUTION = HASH (Enrollment_Id),
 		
 		CLUSTERED COLUMNSTORE INDEX
 		
@@ -538,55 +538,55 @@ Once the external table is created, you can either load the data into a new tabl
 		
 		SELECT distinct
 		
-		Id, ed.Type, ed.User\_Id, --ef.User\_id,
+		Id, ed.Type, ed.User_Id, --ef.User_id,
 		
-		ed.Course\_Id, --ef.Course\_id,
+		ed.Course_Id, --ef.Course_id,
 		
 		convert(smalldatetime,
 		
 		substring(CreatedAt, 1, 4) + '-' + substring(CreatedAt, 6, 2) + '-' + substring(CreatedAt, 9, 2)
 		
-		) as Created\_At,
+		) as Created_At,
 		
-		case when (ef.Computed\_Final\_Score = '\\N') then NULL else ef.Computed\_Final\_Score end
+		case when (ef.Computed_Final_Score = '\N') then NULL else ef.Computed_Final_Score end
 		
 		FROM
 		
-		dbo.EnrollmentDimExternal ed inner join dbo.EnrollmentFactExternal ef on (ed.Id = ef.Enrollment\_Id)
+		dbo.EnrollmentDimExternal ed inner join dbo.EnrollmentFactExternal ef on (ed.Id = ef.Enrollment_Id)
 		
 		where Id != 'Id'
 		
 		AND isDate(substring(CreatedAt, 1, 4) + '-' + substring(CreatedAt, 6, 2) + '-' + substring(CreatedAt, 9, 2)) = 1
 		
-		SELECT \* FROM dbo.EnrollmentMaster;
+		SELECT * FROM dbo.EnrollmentMaster;
 
 Now, you can analyze the data in your tables by writing SQL queries. The following queries will give you some insight into the enrollments and student grades.
 
 		--check the type of enrollments
 		
-		select distinct(type) from \[dbo\].\[EnrollmentMaster\]
+		select distinct(type) from [dbo].[EnrollmentMaster]
 		
 		--Student count
 		
-		select count(\*) as StudentCount from \[dbo\].\[EnrollmentMaster\] where type = 'StudentEnrollment'
+		select count(*) as StudentCount from [dbo].[EnrollmentMaster] where type = 'StudentEnrollment'
 		
 		--Teacher count
 		
-		select count(\*) as TeacherCount from \[dbo\].\[EnrollmentMaster\] where type = 'TeacherEnrollment'
+		select count(*) as TeacherCount from [dbo].[EnrollmentMaster] where type = 'TeacherEnrollment'
 		
 		--Count of Students with grades under 70
 		
-		select count(\*) as StudentGradesUnder70 from \[dbo\].\[EnrollmentMaster\]
+		select count(*) as StudentGradesUnder70 from [dbo].[EnrollmentMaster]
 		
-		where type = 'StudentEnrollment' and Computed\_Final\_Score &lt; 0.7 and Computed\_Final\_Score is not null
+		where type = 'StudentEnrollment' and Computed_Final_Score < 0.7 and Computed_Final_Score is not null
 		
 		--Percentage of Students with grades under 70
 		
-		select (100\*count(\*)/(select count(\*) from \[dbo\].\[EnrollmentMaster\] where type = 'StudentEnrollment' and Computed\_Final\_Score is not null)) as Percentage
+		select (100*count(*)/(select count(*) from [dbo].[EnrollmentMaster] where type = 'StudentEnrollment' and Computed_Final_Score is not null)) as Percentage
 		
-		from \[dbo\].\[EnrollmentMaster\]
+		from [dbo].[EnrollmentMaster]
 		
-		where type = 'StudentEnrollment' and Computed\_Final\_Score &lt; 0.7 and Computed\_Final\_Score is not null
+		where type = 'StudentEnrollment' and Computed_Final_Score < 0.7 and Computed_Final_Score is not null
 
 ### What have you done so far?
 
@@ -653,7 +653,7 @@ Power BI integration allows you to directly connect to the data stored in your A
 	
 	 <img src="./media/image24.png" width="624" height="507" />
 	
-	-   Similarly, create a Gauge chart from the **Visualizations** pane on the report and drag Enrollment\_Id of the EnrollmentMaster from the **Fields** pane.
+	-   Similarly, create a Gauge chart from the **Visualizations** pane on the report and drag Enrollment_Id of the EnrollmentMaster from the **Fields** pane.
 	
 	-   Here, you are tracking the progress of Enrollments.
 	
