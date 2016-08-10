@@ -132,9 +132,9 @@ The centralized data store for our workshop has been prepared for you in blob st
 
 The following are the **access details** you will need to access the centralized blob storage.
 
-**Storage account name:** <storage account name>
+**Storage account name:** p20xdatastorage
 
-**Storage account key:** <storage access key>
+**Storage account key:** 2NX7xVaHL2ZQTPc0tBdIOxpz18zyMudmAlLNxECjFSE01M5551XcWgRIPzpiTHhEvHeTUEj8Z72Oh4XpqAdoYA==
 
 Copy the storage account key and paste it in the textbox as shown below and click **Next**.
 
@@ -202,7 +202,7 @@ Select **New Query** in SQL Server Management Studio. **Change the database nam
 		
 		IDENTITY = 'user',
 		
-		SECRET = '<storage access key>';
+		SECRET = '2NX7xVaHL2ZQTPc0tBdIOxpz18zyMudmAlLNxECjFSE01M5551XcWgRIPzpiTHhEvHeTUEj8Z72Oh4XpqAdoYA==';
 		
 		GO
 		
